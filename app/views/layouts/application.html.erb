@@ -6,9 +6,12 @@
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <%= cloudinary_js_config %>
+    <link href="https://fonts.googleapis.com/css?family=Dancing+Script" rel="stylesheet">
   </head>
 
   <body>
+    <%= render "shared/navbar" %>
     <%= yield %>
   </body>
 </html>

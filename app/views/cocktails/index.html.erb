@@ -1,11 +1,38 @@
-<h1>Your cocktails</h1>
+<div class="banner" >
+  <div class="banner-content">
+    <h1>La maison du cocktail</h1>
+    <p>Exquisite cocktails makers for pretentious rich people</p>
+  </div>
+</div>
+
+
+
+<div class="wrapper">
+ <div class="text-center"><h1>Our cocktails</h1></div>
+ <div class="container">
+  <% @cocktails.each_slice(3) do |drinks| %>
+  <div class="row">
+  <% drinks.each do |drink| %>
+    <div class ="col-xs-12  col-sm-6 col-md-3" >
+      <div class="card"
+      style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)),
+      url('<%= cl_image_path drink.photo, height: 200, width: 300, crop: :scale ; %>')">
+      <div class="card-category">Trending</div>
+      <div class="card-description">
+        <h2><%= link_to cocktail_path(drink) do %> <%= drink.name %> <% end %></h2>
+      </div>
+    </div>
+  </div>
+  <% end %>
+</div>
+<% end %>
+</div>
+</div>
 
 
 <ul>
-<% @cocktails.each do |drink| %>
+  <% @cocktails.each do |drink| %>
   <li> <%= link_to cocktail_path(drink) do %> <%= drink.name %> </li> <% end %>
-<% end %>
+  <% end %>
 </ul>
 
-
-<%= link_to "Add a new cocktail", new_cocktail_path %>
